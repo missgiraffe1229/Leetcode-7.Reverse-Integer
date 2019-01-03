@@ -1,0 +1,22 @@
+class Solution:
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        x_max = 2 ** 31 - 1
+        x_min = -2 ** 31
+        flag = 0
+        if x<0:
+            flag = 1
+            x = -x
+        tmp = x
+        y = 0
+        while tmp:
+            y = y*10 + tmp%10
+            tmp = int(tmp/10)
+        if flag == 1:
+            y = -y
+        if y > x_max or y < x_min:
+            return 0
+        return y
